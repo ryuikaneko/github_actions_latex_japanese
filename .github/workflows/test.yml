@@ -1,0 +1,36 @@
+name: Build LaTeX document
+on: [push]
+jobs:
+  build_latex:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v1
+      - name: Compile LaTeX document
+        uses: dante-ev/latex-action@master
+        with:
+          root_file: test.tex
+          working_directory: test/
+      - name: Compile LaTeX document (Japanese)
+        uses: dante-ev/latex-action@master
+        with:
+          root_file: test_jp.tex
+          working_directory: test_jp/
+          args: -pdfdvi
+      - name: Check pdf files
+        run: |
+          set -e
+          file test/test.pdf | grep -q ' PDF '
+          file test_jp/test_jp.pdf | grep -q ' PDF '
+      - name: Upload
+        uses: actions/upload-artifact@master
+        with:
+          name: test
+          path: test
+        if: always()
+      - name: Upload (Japanese)
+        uses: actions/upload-artifact@master
+        with:
+          name: test_jp
+          path: test_jp
+        if: always()
