@@ -17,11 +17,17 @@ jobs:
           root_file: test_jp.tex
           working_directory: test_jp/
           args: -pdfdvi
+      - name: Compile LaTeX document (REVTeX + CJK characters + Japanese comments)
+        uses: dante-ev/latex-action@master
+        with:
+          root_file: paper.tex
+          working_directory: revtex/
       - name: Check pdf files
         run: |
           set -e
           file test/test.pdf | grep -q ' PDF '
           file test_jp/test_jp.pdf | grep -q ' PDF '
+          file revtex/paper.pdf | grep -q ' PDF '
       - name: Upload
         uses: actions/upload-artifact@master
         with:
@@ -33,4 +39,10 @@ jobs:
         with:
           name: test_jp
           path: test_jp
+        if: always()
+      - name: Upload (REVTeX + CJK characters + Japanese comments)
+        uses: actions/upload-artifact@master
+        with:
+          name: revtex
+          path: revtex
         if: always()
