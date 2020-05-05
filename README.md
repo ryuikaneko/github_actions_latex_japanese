@@ -25,3 +25,10 @@
     * https://qiita.com/denkiuo604/items/63b8c34a60a2340727b1
     * https://qiita.com/denkiuo604/items/137a1b3fc1955cfb9c58
     * https://qiita.com/denkiuo604/items/c33088b1ab542f354d22
+
+----
+
+* 追記（2020/05/05）
+  * ReVTEXに日本語コメントを入れる例を追加した（ファイルは./revtex/、実行結果は[ここ](https://github.com/ryuikaneko/github_actions_latex_japanese/actions/runs/95953146)）。
+  * 名前に日本語、中国語（繁体字・簡体字）、韓国語も挿入してみた。
+  * ファイルの文字コードははUTF-8。
