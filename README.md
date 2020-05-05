@@ -31,4 +31,4 @@
 * 追記（2020/05/05）
   * ReVTEXに日本語コメントを入れる例を追加した（ファイルは./revtex/、実行結果は[ここ](https://github.com/ryuikaneko/github_actions_latex_japanese/actions/runs/95953146)）。
   * 名前に日本語、中国語（繁体字・簡体字）、韓国語も挿入してみた。
-  * ファイルの文字コードははUTF-8。
+  * ファイルの文字コードはUTF-8。
